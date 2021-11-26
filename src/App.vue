@@ -1,16 +1,26 @@
 <template>
   <div id="app">
-    <Covers/>
+
+    <header>
+      <Header/>
+    </header>
+
+    <main>
+      <Covers/>
+    </main>
+    
   </div>
 </template>
 
 <script>
 import Covers from './components/Covers.vue'
+import Header from './components/Header.vue'
 
 export default {
   name: 'App',
   components: {
-    Covers
+    Covers,
+    Header
   }
 }
 </script>
