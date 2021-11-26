@@ -49,5 +49,6 @@ export default {
     max-width: 60%;
     max-height: 620px;
     margin: 80px auto;
+    overflow-y: scroll;
   }
 </style>
