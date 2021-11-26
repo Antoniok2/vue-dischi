@@ -1,12 +1,20 @@
 <template>
   <div id="album">
-    
+    <div class="style_album">
+        <img :src="details.poster" :alt="details.title">
+    </div>
+    <h3>{{details.title}}</h3>
+    <div>{{details.author}}</div>
+    <span>{{details.year}}</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Cover'
+  name: 'Cover',
+  props: {
+      details: Object
+  }
 }
 </script>
 
@@ -14,11 +22,39 @@ export default {
 <style scoped lang="scss">
   #album {
     width: calc((100% / 5) - 20px);
-    height: 230px;
+    height: 280px;
     margin: 10px;
-    background-color: #2e3a46;
+    background-color: #2e3a46;;
+    text-align: center;
+    cursor: pointer;
 
-    // debug
-    border: solid 1px yellow;
+    .style_album {
+        margin: 10px;
+        background-color: #2e3a46;
+
+        img {
+            width: 80%;
+        }
+    }
+
+    h3 {
+        color: white;
+        margin-bottom: 5px;
+        background-color: #2e3a46;
+    }
+
+    div {
+        color: #6e6f6a;
+        background-color: #2e3a46;
+    }
+
+    span {
+        color: #6e6f6a;
+        background-color: #2e3a46;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
   }
 </style>
