@@ -1,9 +1,6 @@
 <template>
 <div>
-  <div class="loading_albums" v-if="Albums.length === 0">
-    Loading
-    <font-awesome-icon icon="circle-notch"></font-awesome-icon>
-  </div>
+  <Bonus v-if="Albums.length === 0"/>
   <div v-else id="albums">
     <Cover v-for="album, i in Albums"
     :key="i"
@@ -16,12 +13,14 @@
 
 <script>
 import Cover from '@/components/Cover.vue'
+import Bonus from '@/components/Bonus.vue'
 import axios from 'axios'
 
 export default {
   name: 'Covers',
   components: {
-    Cover
+    Cover,
+    Bonus
   },
   data() {
     return {
@@ -50,14 +49,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  .loading_albums {
-    border: solid 2px black;
-    background-color: #2e3a46;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 30px;
-  }
+
 
   #albums {
     display: flex;
