@@ -33,8 +33,7 @@ export default {
         // console.log(result.data.response);
         this.Albums = result.data.response
         console.log(this.Albums);
-      }
-      )
+      })
     }
   }
 }
@@ -45,10 +44,8 @@ export default {
   #albums {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
     max-width: 60%;
-    max-height: 620px;
-    margin: 80px auto;
-    overflow-y: scroll;
+    max-height: 720px;
+    margin: 20px auto;
   }
 </style>

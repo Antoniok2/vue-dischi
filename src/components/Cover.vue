@@ -22,7 +22,7 @@ export default {
 <style scoped lang="scss">
   #album {
     width: calc((100% / 5) - 20px);
-    height: 280px;
+    min-height: 320px;
     margin: 10px;
     background-color: #2e3a46;;
     text-align: center;
@@ -33,7 +33,7 @@ export default {
         background-color: #2e3a46;
 
         img {
-            width: 80%;
+            width: 90%;
         }
     }
 
