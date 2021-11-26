@@ -19,8 +19,8 @@ import Header from './components/Header.vue'
 export default {
   name: 'App',
   components: {
-    Covers,
-    Header
+    Header,
+    Covers
   }
 }
 </script>
