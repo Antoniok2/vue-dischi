@@ -1,6 +1,9 @@
 <template>
 <div>
-  <div class="loading_albums" v-if="Albums.length === 0"><i class="fas fa-circle-notch"></i></div>
+  <div class="loading_albums" v-if="Albums.length === 0">
+    Loading
+    <font-awesome-icon icon="circle-notch"></font-awesome-icon>
+  </div>
   <div v-else id="albums">
     <Cover v-for="album, i in Albums"
     :key="i"
@@ -22,7 +25,7 @@ export default {
   },
   data() {
     return {
-      ApiUrl: "https://flynn.boolean.careers/exercises/api/array/musics",
+      ApiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       Albums: []
     }
   },
@@ -53,7 +56,9 @@ export default {
     color: white;
     padding: 10px 20px;
     text-align: center;
+    font-size: 30px;
   }
+
   #albums {
     display: flex;
     flex-wrap: wrap;
@@ -61,4 +66,5 @@ export default {
     max-height: 720px;
     margin: 20px auto;
   }
+  
 </style>
