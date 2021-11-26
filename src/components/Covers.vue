@@ -1,10 +1,14 @@
 <template>
-  <div id="albums">
+<div>
+  <div class="loading_albums" v-if="Albums.length === 0">Loading albums...</div>
+  <div v-else id="albums">
     <Cover v-for="album, i in Albums"
     :key="i"
     :details="album"
     />
   </div>
+</div>
+  
 </template>
 
 <script>
@@ -23,7 +27,9 @@ export default {
     }
   },
   created() {
-    this.prendiAlbums()
+    setTimeout(() => {
+      this.prendiAlbums()
+    }, 1000);
   },
   methods: {
     prendiAlbums(){
@@ -41,6 +47,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+  .loading_albums {
+    border: solid 2px black;
+    background-color: #2e3a46;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+  }
   #albums {
     display: flex;
     flex-wrap: wrap;
