@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="loading_albums" v-if="Albums.length === 0">Loading albums...</div>
+  <div class="loading_albums" v-if="Albums.length === 0"><i class="fas fa-circle-notch"></i></div>
   <div v-else id="albums">
     <Cover v-for="album, i in Albums"
     :key="i"
@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      ApiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
+      ApiUrl: "https://flynn.boolean.careers/exercises/api/array/musics",
       Albums: []
     }
   },
