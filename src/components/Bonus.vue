@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'Cover'
+  name: 'Bonus'
 
 }
 </script>

@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Cover',
+  name: 'Selects',
   props: {
       details: Object
   }
