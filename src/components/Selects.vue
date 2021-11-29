@@ -1,19 +1,23 @@
 <template>
   <div class="selection_genre">
-      <select name="Genre" id="" @change="$emit('search', value)">
-          <option :value="all">All</option>
-          <option :value="Rock">Rock</option>
-          <option :value="Pop">Pop</option>
-          <option :value="Metal">Metal</option>
-          <option :value="Jazz">Jazz</option>
+      <select name="Genre" @change="$emit('search', genere)" v-model="genere">
+          <option value="all">All</option>
+          <option value="Rock">Rock</option>
+          <option value="Pop">Pop</option>
+          <option value="Metal">Metal</option>
+          <option value="Jazz">Jazz</option>
       </select>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Selects',
-
+    name: 'Selects',
+    data() {
+        return {
+            genere: ""
+        }
+    }
 }
 </script>
 

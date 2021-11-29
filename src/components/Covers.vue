@@ -1,9 +1,9 @@
 <template>
   <div>
     <Selects @search="selectGenre" />
-    <Bonus v-if="Albums.length === 0"/>
+    <Bonus v-if="albums.length === 0"/>
     <div v-else id="albums">
-      <Cover v-for="album, i in Albums"
+      <Cover v-for="album, i in filterAlbumList"
       :key="i"
       :details="album"
       />
@@ -24,28 +24,48 @@ export default {
     Bonus,
     Selects
   },
+
   data() {
     return {
-      ApiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
-      Albums: [],
+      apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
+      albums: [],
       optionGenre: "all"
     }
   },
+
   created() {
     setTimeout(() => {
       this.prendiAlbums()
     }, 1000);
   },
+
+  computed: {
+    filterAlbumList() {
+      if(this.optionGenre === "all") {
+        return this.albums
+      }
+
+      return this.albums.filter((item) => {
+        return item.genre.includes(this.optionGenre)
+        }
+      )
+    }
+  },
+
   methods: {
     prendiAlbums(){
       axios
-      .get(this.ApiUrl)
+      .get(this.apiUrl)
       .then((result) => {
         // console.log(result.data.response);
-        this.Albums = result.data.response
-        console.log(this.Albums);
+        this.albums = result.data.response
+        console.log(this.albums);
       })
     },
+
+    selectGenre(genere) {
+      this.optionGenre = genere;
+    }
   }
 }
 </script>
