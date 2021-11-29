@@ -1,31 +1,33 @@
 <template>
-<div>
-  <Bonus v-if="Albums.length === 0"/>
-  <div v-else id="albums">
-    <Cover v-for="album, i in Albums"
-    :key="i"
-    :details="album"
-    />
+  <div>
+    <Selects/>
+    <Bonus v-if="Albums.length === 0"/>
+    <div v-else id="albums">
+      <Cover v-for="album, i in Albums"
+      :key="i"
+      :details="album"
+      />
+    </div>
   </div>
-</div>
-  
 </template>
 
 <script>
 import Cover from '@/components/Cover.vue'
 import Bonus from '@/components/Bonus.vue'
+import Selects from '@/components/Selects.vue'
 import axios from 'axios'
 
 export default {
   name: 'Covers',
   components: {
     Cover,
-    Bonus
+    Bonus,
+    Selects
   },
   data() {
     return {
       ApiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
-      Albums: []
+      Albums: [],
     }
   },
   created() {

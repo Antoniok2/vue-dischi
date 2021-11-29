@@ -39,7 +39,7 @@ export default {
 
     h3 {
         color: white;
-        margin-bottom: 5px;
+        margin: 10px 5px;
         background-color: #2e3a46;
     }
 
