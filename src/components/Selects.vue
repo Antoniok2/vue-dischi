@@ -1,11 +1,11 @@
 <template>
   <div class="selection_genre">
-      <select name="" id="">
-          <option value="">All</option>
-          <option value="Rock">Rock</option>
-          <option value="Pop">Pop</option>
-          <option value="Metal">Metal</option>
-          <option value="Jazz">Jazz</option>
+      <select name="Genre" id="" @change="$emit('search', value)">
+          <option :value="all">All</option>
+          <option :value="Rock">Rock</option>
+          <option :value="Pop">Pop</option>
+          <option :value="Metal">Metal</option>
+          <option :value="Jazz">Jazz</option>
       </select>
   </div>
 </template>
@@ -13,9 +13,7 @@
 <script>
 export default {
   name: 'Selects',
-  props: {
-      details: Object
-  }
+
 }
 </script>
 

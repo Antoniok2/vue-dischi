@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Selects/>
+    <Selects @search="selectGenre" />
     <Bonus v-if="Albums.length === 0"/>
     <div v-else id="albums">
       <Cover v-for="album, i in Albums"
@@ -28,6 +28,7 @@ export default {
     return {
       ApiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       Albums: [],
+      optionGenre: "all"
     }
   },
   created() {
@@ -44,7 +45,7 @@ export default {
         this.Albums = result.data.response
         console.log(this.Albums);
       })
-    }
+    },
   }
 }
 </script>
