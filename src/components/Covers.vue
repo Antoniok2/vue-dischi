@@ -7,6 +7,7 @@
       :details="album"
       />
     </div>
+
   </div>
 </template>
 
@@ -22,14 +23,13 @@ export default {
     Bonus
   },
   props: {
-    genreSelected: Object
+    genreSelected: String
   },
 
   data() {
     return {
       apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       albums: [],
-      optionGenre: "all"
     }
   },
 
