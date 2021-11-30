@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-
+    <h2>{{optionGenre}}</h2>
     <header>
       <Header/>
     </header>
 
     <main>
-      <Covers/>
+      <Selects @search="selectGenre" />
+      <Covers :genreSelected="optionGenre"/>
     </main>
     
   </div>
@@ -15,12 +16,26 @@
 <script>
 import Covers from './components/Covers.vue'
 import Header from './components/Header.vue'
+import Selects from '@/components/Selects.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Covers
+    Covers,
+    Selects
+  },
+  data() {
+    return {
+      optionGenre: "all",
+      genreSelected: "",
+    }
+  },
+  methods: {
+    selectGenre(genere) {
+      this.optionGenre = genere;
+      console.log(this.genreSelected);
+    }
   }
 }
 </script>

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Selects @search="selectGenre" />
     <Bonus v-if="albums.length === 0"/>
     <div v-else id="albums">
       <Cover v-for="album, i in filterAlbumList"
@@ -14,15 +13,16 @@
 <script>
 import Cover from '@/components/Cover.vue'
 import Bonus from '@/components/Bonus.vue'
-import Selects from '@/components/Selects.vue'
 import axios from 'axios'
 
 export default {
   name: 'Covers',
   components: {
     Cover,
-    Bonus,
-    Selects
+    Bonus
+  },
+  props: {
+    genreSelected: Object
   },
 
   data() {
@@ -41,12 +41,12 @@ export default {
 
   computed: {
     filterAlbumList() {
-      if(this.optionGenre === "all") {
+      if(this.genreSelected === "all") {
         return this.albums
       }
 
       return this.albums.filter((item) => {
-        return item.genre.includes(this.optionGenre)
+        return item.genre.includes(this.genreSelected)
         }
       )
     }
@@ -61,10 +61,6 @@ export default {
         this.albums = result.data.response
         console.log(this.albums);
       })
-    },
-
-    selectGenre(genere) {
-      this.optionGenre = genere;
     }
   }
 }
